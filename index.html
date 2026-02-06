@@ -4,6 +4,57 @@
     <title>Hello, World!</title>
   </head>
   <body>
-  <!-- WOW, GitHub commit history! That is pretty smart! Ill give you a compliment, but go to the latest version, please -->
+      <h1 class="title">Hello World!</h1>
+      <h2 class="title">You're doing well!</h2>
+      <p>Im kinda lazy, this could be more elaborated... Trust me I could do it if I wanted to.</p>
+      <!-- Diving into the source code, huh? How cute -->
+      <p class="hide" style="display:block">Behold the power of F-keys, they're so powerful... But be careful!</p>
+      <p class="reveal" style="display:none">So here it is... My discord username... "Zmlyc3RieXRl". Its very *base*ic, I know.</p>
+      <p class="reveal" style="display:none">If you dm me, make sure to include the keyword "Flogging"! Great job!</p>
   </body>
 </html>
+<script>
+document.addEventListener("keydown", function (event) {
+    if (event.code === "F8") {
+        const elements = document.querySelectorAll(".reveal");
+        const revelements = document.querySelectorAll(".hide");
+
+        elements.forEach(el => {
+            if (el.style.display === "none" || el.style.display === "") {
+                el.style.display = "block";
+            } else {
+                el.style.display = "none";
+            }
+        });
+        revelements.forEach(el => {
+            if (el.style.display === "block") {
+                el.style.display = "none";
+            } else {
+                el.style.display = "block";
+            }
+        });
+    }
+});
+(function () {
+    let violated = false;
+
+    document.addEventListener("keydown", function (event) {
+        if (!event.code.startsWith("F")) return;
+
+        const keyNumber = Number(event.code.substring(1));
+
+        if (isNaN(keyNumber)) return;
+
+        if (keyNumber >= 1 && keyNumber <= 7) {
+            violated = true;
+            return;
+        }
+
+        if (event.code === "F8" && violated) {
+            alert("I SAID BE CAREFUL");
+            location.reload();
+        }
+    });
+})();
+</script>
+
